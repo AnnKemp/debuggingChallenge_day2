@@ -33,16 +33,13 @@ $monday = $week[0]; // gewoon de index op nul gezet
 echo $monday;
 // 2 is 'OK'
 new_exercise(3);
-
 // functie aanroep is 'ok'
 // === Exercise 3 ===
 // This should echo ` "Debugged !" `, fix it so that that is the literal text echo'ed
 
 $str = "Debugged ! Also very fun"; // verkeerde aanhalingstekens rond de string
 echo substr($str, 0, 10);
-
 // 3 is 'ok'!
-
 
 new_exercise(4);
 // === Exercise 4 ===
@@ -63,6 +60,26 @@ echo "<br/>";
 
 print_r($week);
 // excercise 4 is 'ok'
+
+new_exercise(5); // excercise 5 is 'ok'
+// === Exercise 5 ===
+// The array should be printing every letter of the alfabet (a-z) but instead it does that + aa-yz
+// Fix the code so the for loop only pushes a-z in the array
+
+$arr = [];
+for ($letter = 'a'; $letter <= 'z'; $letter++) {
+    array_push($arr, $letter);
+
+    $zpos=array_search("z",$arr);
+    if($zpos==25) {
+        break;
+    }
+}
+print_r($arr); // Array ([0] => a, [1] => b, [2] => c, ...) a-z alfabetical array
+
+
+
+
 
 
 
@@ -88,7 +105,6 @@ print $login = login('john@example', 'dfgidfgdfg');
 print "<br />";
 //no access
 print $login = login('wrong@example', 'wrong');
-
 
 new_exercise(9); // is OK!
 function isLinkValid(string $link) {
@@ -124,4 +140,4 @@ for($i=0; $i <= (count($areTheseFruits)+1); $i++) {
         unset($areTheseFruits[$i]); // deze functie is 'ok' en selecteert de index en verwijdert via de index, een nummer dus
     }
 }
-var_dump($areTheseFruits);//do not change this
+var_dump($areTheseFruits);//do not change thisls

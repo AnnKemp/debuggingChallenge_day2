@@ -77,11 +77,36 @@ for ($letter = 'a'; $letter <= 'z'; $letter++) {
 }
 print_r($arr); // Array ([0] => a, [1] => b, [2] => c, ...) a-z alfabetical array
 
+new_exercise(6);
+// === Final exercise ===
+// The fixed code should echo the following at the bottom:
+// Here is the name: $name - $name2
+// $name variables are decided as seen in the code, fix all the bugs while keeping the functionality!
 
+$arr = []; //
 
+function combineNames(string $str1 = "", string $str2 = "") {
+    $params = [$str1, $str2];
+    foreach($params as $param) {
+        if ($param == "") {
+            return (string) $param = randomHeroName();
+        }
+    }
+    // if the parameters are given with the function call  // this part works
+    return (string) implode($params, " - ");
+}
 
+function randomHeroName()
+{
+    $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
+    $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
+    $heroes = [$hero_firstnames, $hero_lastnames];
+    // print_r($heroes); echo "<br>";echo "<br>"; // even testen wat er in zit
+    $randname = $heroes[0][mt_rand(0, 10)]." - ".$heroes[1][mt_rand(0, 10)]; // dit even opnieuw geschreven
 
-
+    return (string) $randname;
+}
+echo "Here is the name: " . combineNames('Ann', 'Kemp');
 
 new_exercise(7);  //  is OK! :) er moest dus een string ipv een integer gedeclareerd worden voor de parameters
 function copyright(string $year) {

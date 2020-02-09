@@ -62,8 +62,6 @@ foreach($week as $day) {
 echo "<br/>";
 
 print_r($week);
-
-
 // excercise 4 is 'ok'
 
 
@@ -91,8 +89,26 @@ print "<br />";
 //no access
 print $login = login('wrong@example', 'wrong');
 
-new_exercise(9);
-// volgt
+
+new_exercise(9); // is OK!
+function isLinkValid(string $link) {
+    $unacceptables = array('https:','.doc','.pdf', '.jpg', '.jpeg', '.gif', '.bmp', '.png');
+
+    foreach ($unacceptables as $unacceptable) {
+        if ((strpos($link, $unacceptable) == true) || (strpos($link, $unacceptable) === 0)){
+            return 'Unacceptable Found<br />';
+        }
+    }
+    return 'Acceptable<br />';
+}
+//invalid link
+echo isLinkValid('http://www.google.com/hack.pdf');
+//invalid link
+echo isLinkValid('https://google.com'); // https: met index 0 wordt vertaalt naar false ipv true daarom ook testen op 0
+//VALID link
+echo isLinkValid('http://google.com');
+//VALID link
+echo isLinkValid('http://google.com/test.txt');
 
 new_exercise(10); // oef 10 is opgelost via een 'fix' (+1)
 
